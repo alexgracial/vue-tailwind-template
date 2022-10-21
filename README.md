@@ -1,4 +1,4 @@
-# vue-with-tailwindcss
+# template-vue-tailwind
 
 ## Project setup
 ```
