@@ -7,7 +7,17 @@ const routes = [
         path: '/',
         name: 'layout',
         component: Main
-    }
+    },
+    {
+    path: '/signin',
+    name: 'signin',
+    component: () => import(/* webpackChunkName: "about" */ '../views/SigninView.vue')
+  },
+    {
+    path: '/crud',
+    name: 'navbar',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CrudView.vue')
+  },
 ];
 
 const router = createRouter({

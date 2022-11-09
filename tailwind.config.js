@@ -4,7 +4,8 @@ const colors = require('tailwindcss/colors');
 
 module.exports = {
     mode: 'JIT',
-    content: ['./src/**/*.{vue,js,ts,jsx,tsx}'],
+    content: ['./src/**/*.{vue,js,ts,jsx,tsx}',   ],
+    // "./node_modules/flowbite/**/*.js"
     theme: {
         extend: {
             primary: '#202225',
@@ -12,5 +13,5 @@ module.exports = {
             gray: colors.trueGray
         }
     },
-    plugins: []
+    // plugins: [   require('flowbite/plugin') ]
 };
