@@ -1,6 +1,6 @@
 <template>
-    <div class="mt-8 grid-cols-2 gap-4">
-        <div class="p-4 w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <div class="m-8 ">
+        <div class="p-4 w-full max-w-s bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
             <form  @submit.prevent="createUser()" class="space-y-5" action="#">
                 <h5 class="text-xl font-medium text-gray-900 dark:text-white">Registrar / Actualizar usuario</h5>
                 <div>

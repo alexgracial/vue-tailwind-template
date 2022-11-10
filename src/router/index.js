@@ -8,11 +8,7 @@ const routes = [
         name: 'layout',
         component: Main
     },
-    {
-    path: '/signin',
-    name: 'signin',
-    component: () => import(/* webpackChunkName: "about" */ '../views/SigninView.vue')
-  },
+   
     {
     path: '/crud',
     name: 'navbar',

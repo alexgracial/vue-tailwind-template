@@ -1,14 +1,14 @@
 <template>
     <Navbar />
-    <div class=" flex  ">
-
-        <div class="flex-auto w-64">
+    <div class=" flex-auto  ">
+        
+        <div class="grid place-items-center">
+            <Card />
+        </div>
+        <div class="">
             <Dashboard />
         </div>
 
-        <div class="flex-auto w-6">
-            <Card />
-        </div>
     
     </div>
 </template>
