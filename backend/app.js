@@ -50,6 +50,27 @@ app.post('/crud', function (req, res) {
       let result = pool.query('INSERT INTO users set ?', [user]);
       res.status(200).json({ success:true })
     }
+});
+
+// DELETE
+
+    app.delete('/crud/:id', function(req, res) {
+        let id = req.params.id;
+        console.log('Se envio para eliminarse', id  );
+        const result =  pool.query('DELETE FROM users where id = ?' , id ); 
+        return res.status(200).json();
+    });
+    
+// PUT 
+
+app.put('/crud/:id', function (req, res) {
+    let user = req.body
+    let id = req.params.id; // BODY = INFORMACION QUE LE PASAMOS PARA QUE AÑADA
+    console.log(req.params.id);
 
     
+      let result = pool.query('UPDATE users set ? where id =?' , [user, id] );
+      res.status(200).json({ success:true })
+    
 });
+

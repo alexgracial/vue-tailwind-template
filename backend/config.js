@@ -5,7 +5,7 @@ const pool = mysql.createPool({
     host: "localhost",
     user: "root",
     password: "",
-    database: "02-crud",
+    database: "02_crud",
 });
 
 // Comprobar si se conecta
