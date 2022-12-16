@@ -1,0 +1,62 @@
+VUE 
+COMPUTED:
+
+https://codingpotions.com/vue-computadas
+https://codingpotions.com/vue-metodos
+https://codingpotions.com/vuejs-v-for
+https://codingpotions.com/vue-ciclo-vida
+
+Básicamente son **funciones** que devuelven un valor del componente y antes hace algún cálculo o transformación.
+Las computadas siempre van a usar variables del data o otras computadas.
+
+Es importante saber que las computadas nunca pueden recibir un parámetro desde fuera de la función.
+Si necesitas pasar un valor a una computada tienes que crear un método.
+No puede existir computada sin return.
+
+<template>
+  <div class="content">
+    {{double}}
+  </div>
+</template>
+
+<script>
+  export default {
+
+    data: () => ({
+      value: 20
+    }),
+
+    computed: {
+      double() {
+        return this.value * 2;
+      }
+    }
+
+  };
+</script>
+
+Mira la diferencia de sintaxis entre una computada y un método:
+
+<template>
+  <div class="content">
+    {{double}} - {{calculate()}}
+  </div>
+</template>
+
+<script>
+  export default {
+    data: () => ({
+      value: 20
+    }),
+    computed: {
+      double() {
+        return this.value * 2;
+      }
+    },
+    methods: {
+      calculate() {
+        return this.double + 1;
+      }
+    }
+  };
+</script>

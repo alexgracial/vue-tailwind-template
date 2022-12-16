@@ -5,6 +5,7 @@
         <div class="grid place-items-center">
             <Card />
         </div>
+       
         <div class="">
             <Dashboard />
         </div>
@@ -19,7 +20,7 @@ import Dashboard from '@/components/Dashboard.vue';
 import Card from '@/components/Card.vue';
 
 export default {
-    components: { Navbar, Dashboard, Card }
+    components: { Navbar, Dashboard, Card  }
 };
 </script>
     

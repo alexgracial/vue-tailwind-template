@@ -1,4 +1,6 @@
 <template>
+
+
     <tbody>
         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-900">
             <td class="p-4 w-4">
@@ -24,7 +26,7 @@
             <td class="py-4 px-6">
                 <span v-if="updateState == false">{{ user.email }}</span>
                 <input v-else v-model="editUser.email" />
-            </td>
+            </td> 
             <td class="py-2">
                 <button
                     @click="updateUser(user)"
@@ -46,6 +48,14 @@ import crudApi from '@/api/crudApi';
 
 export default {
     props: ['user'],
+
+    data() {
+        return {
+            updateState: false,
+            editUser: {}
+        };
+
+    },
 
     methods: {
         deleteUser() {
@@ -73,13 +83,6 @@ export default {
         reloadPage() {
             window.location.reload();
         }
-    },
-
-    data() {
-        return {
-            updateState: false,
-            editUser: {}
-        };
     }
 };
 </script>

@@ -64,6 +64,7 @@ import crudApi from '@/api/crudApi';
 
 export default {
     methods: {
+        
         // CREO USUARIO MEDIANTE POST
         // FORM: ASIGNANDO LAS PROPIEDADES, LAS RECIBES CON V:MODEL EN LA DATA.
         // axios middleware, recibe y envia a express.

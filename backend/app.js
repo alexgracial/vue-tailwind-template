@@ -4,8 +4,12 @@ const app = express();
 
 // MIDDLEWARE   -----------
 
+// Peticiones que me llegan 
 const morgan = require('morgan');
 app.use(morgan('tiny'));
+
+// Peticiones que se envian desde servidores diferentes, puertos diferentes. backend - cliente
+// Porque tenemos las dos carpetas diferentes corriendo en puertos diferentes
 
 const cors = require('cors');
 app.use(cors());
@@ -20,10 +24,6 @@ app.get('/', function (req, res) {
     res.send('Hello World!');
 });
 
-app.post('/signup', function (req, res) {
-    res.send('');
-});
-
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
 });
@@ -31,6 +31,12 @@ app.listen(3000, function () {
 // LEER DATOS DE LA BASE DE DATOS PARA EL CRUD
 //  RUTA
 
+
+// AQUI LLEGA EL AXIOS 
+// BASICAMENTE AXIOS PIDE A EXPRESS QUE REALIZE LA PETICION A LA BASE DE DATOS
+
+
+// NOS CARGA LOS USUARIOS (LA INFORMACION)
 app.get('/crud', async function (req, res) {
     const users = await pool.query('SELECT * FROM users');
 
@@ -74,3 +80,4 @@ app.put('/crud/:id', function (req, res) {
     
 });
 
+// PREGUNTAR PARAMS Y DE DONDE SE ENVIA EL BODY
