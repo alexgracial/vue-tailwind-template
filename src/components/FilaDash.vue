@@ -29,11 +29,11 @@
             </td> 
             <td class="py-2">
                 <button
-                    @click="updateUser(user)"
                     type="button"
                     v-if="updateState == false"
                     class="focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 mr-1 mb-1 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                >
+                    @click="updateUser()"
+                    >
                     Editar
                 </button>
                 <button @click="saveUser(), reloadPage()" type="button" v-else class="focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 mr-1 mb-1 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Guardar</button>
@@ -70,7 +70,7 @@ export default {
         },
 
         saveUser() {
-            crudApi.put('/crud/' + this.user.id, this.user).then(({ data }) => {
+            crudApi.put('/crud/' + this.user.id, this.editUser).then(({ data }) => {
                 if (data.success == true) {
                     this.$router.push({
                         path: '/crud'

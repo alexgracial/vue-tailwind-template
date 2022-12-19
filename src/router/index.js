@@ -1,21 +1,29 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import Main from '../views/Main.vue';
+import index from '../views/Index.vue';
+import layout from '../layout/Main.vue';
 
 const routes = [
     {
         path: '/',
         name: 'layout',
-        component: Main
-    },
-   
-    {
-    path: '/crud',
-    name: 'navbar',
-    component: () => import(/* webpackChunkName: "about" */ '../views/CrudView.vue')
-  },
-];
+        component: layout,
+        children: [
+            {
+                path: '',
+                name: 'View-Index',
+                component: index
+            },
 
+            {
+                path: '/crud',
+                name: 'View-crud',
+                component: () => import(/* webpackChunkName: "about" */ '../views/CrudView.vue')
+            }
+        ]
+    }
+];
+// enrutador --> app.vue
 const router = createRouter({
     mode: 'history',
     history: createWebHistory(process.env.BASE_URL),

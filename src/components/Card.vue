@@ -1,7 +1,7 @@
 <template>
-    <div class="m-8 ">
+    <div class="m-8">
         <div class="p-4 w-full max-w-s bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-            <form  @submit.prevent="createUser()" class="space-y-5" action="#">
+            <form @submit.prevent="createUser()" class="space-y-5" action="#">
                 <h5 class="text-xl font-medium text-gray-900 dark:text-white">Registrar / Actualizar usuario</h5>
                 <div>
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Correo Electronico</label>
@@ -42,10 +42,10 @@
                 </div>
                 <div>
                     <label for="password2" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Repite la contraseña</label>
-                    <input 
+                    <input
                         v-model="user.password2"
                         type="password"
-                        name="password2" 
+                        name="password2"
                         id="password2"
                         placeholder="••••••••"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
@@ -53,7 +53,9 @@
                     />
                 </div>
 
-                <button @click="reloadPage()" type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Crear</button>
+                <button @click="reloadPage()" type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Crear
+                </button>
             </form>
         </div>
     </div>
@@ -63,8 +65,17 @@
 import crudApi from '@/api/crudApi';
 
 export default {
+    data() {
+        return {
+            user: {
+                username: '',
+                email: '',
+                password: '',
+                password2: ''
+            }
+        };
+    },
     methods: {
-        
         // CREO USUARIO MEDIANTE POST
         // FORM: ASIGNANDO LAS PROPIEDADES, LAS RECIBES CON V:MODEL EN LA DATA.
         // axios middleware, recibe y envia a express.
@@ -78,28 +89,15 @@ export default {
                         });
                     }
                 });
-            } else  {
-                console.log('ERROR')
+            } else {
+                console.log('ERROR');
             }
         },
         reloadPage() {
             window.location.reload();
         }
-
-    },
-
-    data() {
-        return {
-            user: {
-                username: '',
-                email: '',
-                password: '',
-                password2: ''
-            }
-        };
     }
 };
 </script>
 
-<style>
-</style>
+<style></style>

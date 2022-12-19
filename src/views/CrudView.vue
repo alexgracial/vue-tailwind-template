@@ -1,5 +1,5 @@
 <template>
-    <Navbar />
+    
     <div class=" flex-auto  ">
         
         <div class="grid place-items-center">
@@ -14,13 +14,12 @@
     </div>
 </template>
     
-    <script>
-import Navbar from '@/components/Navbar.vue';
+<script>
 import Dashboard from '@/components/Dashboard.vue';
 import Card from '@/components/Card.vue';
 
 export default {
-    components: { Navbar, Dashboard, Card  }
+    components: { Dashboard, Card  }
 };
 </script>
     

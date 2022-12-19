@@ -20,10 +20,6 @@ app.use(express.urlencoded({ extended: true }));
 
 //   ------------------------
 
-app.get('/', function (req, res) {
-    res.send('Hello World!');
-});
-
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
 });
@@ -53,7 +49,7 @@ app.post('/crud', function (req, res) {
         res.status(400);
     }else{
       delete user.password2
-      let result = pool.query('INSERT INTO users set ?', [user]);
+     pool.query('INSERT INTO users set ?', [user]);
       res.status(200).json({ success:true })
     }
 });
@@ -63,7 +59,7 @@ app.post('/crud', function (req, res) {
     app.delete('/crud/:id', function(req, res) {
         let id = req.params.id;
         console.log('Se envio para eliminarse', id  );
-        const result =  pool.query('DELETE FROM users where id = ?' , id ); 
+        pool.query('DELETE FROM users where id = ?' , id ); 
         return res.status(200).json();
     });
     
@@ -73,10 +69,9 @@ app.put('/crud/:id', function (req, res) {
     let user = req.body
     let id = req.params.id; // BODY = INFORMACION QUE LE PASAMOS PARA QUE AÑADA
     console.log(req.params.id);
-
     
-      let result = pool.query('UPDATE users set ? where id =?' , [user, id] );
-      res.status(200).json({ success:true })
+     pool.query('UPDATE users set ? where id =?' , [user, id] );
+    res.status(200).json({ success:true })
     
 });
 
